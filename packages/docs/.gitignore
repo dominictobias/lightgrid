@@ -3,6 +3,7 @@
 
 # Production
 /build
+.wrangler
 
 # Generated files
 .docusaurus

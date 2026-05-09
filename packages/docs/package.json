@@ -6,6 +6,8 @@
     "docusaurus": "docusaurus",
     "dev": "docusaurus start --port 8095 --host 0.0.0.0",
     "build": "docusaurus build",
+    "preview:cloudflare": "pnpm build && wrangler pages dev ./build",
+    "deploy:cloudflare": "pnpm build && wrangler pages deploy ./build --project-name lightgrid-docs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -33,7 +35,8 @@
     "@types/node": "^20.14.11",
     "dotenv": "^16.4.5",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "wrangler": "^4.90.0"
   },
   "browserslist": [
     "last 3 chrome version",
