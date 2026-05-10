@@ -3,6 +3,9 @@ import { themes as prismThemes } from 'prism-react-renderer'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
 
+const defaultReactDemoBase =
+  process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8094'
+
 const config: Config = {
   title: 'Lightgrid',
   tagline: 'A fast, lightweight, and full-featured Datagrid for React',
@@ -21,7 +24,7 @@ const config: Config = {
 
   customFields: {
     // Put your custom environment here
-    reactDemoBase: process.env.REACT_DEMO_BASE,
+    reactDemoBase: process.env.REACT_DEMO_BASE ?? defaultReactDemoBase,
   },
 
   onBrokenLinks: 'throw',

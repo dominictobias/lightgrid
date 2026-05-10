@@ -27,6 +27,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
+    "build:demos": "tsc && vite build --base=/demos/",
     "build:lib": "tsc && BUILD_MODE=lib vite build",
     "prepublishOnly": "npm run build:lib",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
