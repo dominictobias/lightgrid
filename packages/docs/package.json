@@ -6,7 +6,7 @@
     "docusaurus": "docusaurus",
     "dev": "docusaurus start --port 8095 --host 0.0.0.0",
     "build": "docusaurus build",
-    "build:cloudflare": "REACT_DEMO_BASE= pnpm build && pnpm --filter @lightgrid/react build:demos && mkdir -p build/demos && cp -R ../react/dist/. build/demos",
+    "build:cloudflare": "REACT_DEMO_BASE= pnpm build && pnpm --filter @lightgrid/react build:demos && node scripts/embed-demos.mjs",
     "preview:cloudflare": "pnpm build:cloudflare && wrangler pages dev ./build",
     "deploy:cloudflare": "pnpm build:cloudflare && wrangler pages deploy ./build --project-name lightgrid-docs",
     "swizzle": "docusaurus swizzle",
