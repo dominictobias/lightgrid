@@ -18,10 +18,10 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "homepage": "https://github.com/sekoyo/lightgrid",
+  "homepage": "https://github.com/dominictobias/lightgrid",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sekoyo/lightgrid.git"
+    "url": "https://github.com/dominictobias/lightgrid.git"
   },
   "license": "UNLICENSED",
   "scripts": {
