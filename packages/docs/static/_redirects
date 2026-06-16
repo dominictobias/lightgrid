@@ -1,1 +1,1 @@
-/demos/* /demos/index.html 200
+/demos/* /demos/:splat 200
