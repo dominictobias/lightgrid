@@ -1,11 +1,14 @@
-export async function onRequest(context) {
-  const response = await context.next()
+export default {
+  async fetch(request, env) {
+    const response = await env.ASSETS.fetch(request)
 
-  if (response.status !== 404 || !isDemoPageRequest(context.request)) {
-    return response
-  }
+    if (response.status !== 404 || !isDemoPageRequest(request)) {
+      return response
+    }
 
-  return context.next('/demos/index.html')
+    const fallbackUrl = new URL('/demos/index.html', request.url)
+    return env.ASSETS.fetch(new Request(fallbackUrl, request))
+  },
 }
 
 function isDemoPageRequest(request) {
@@ -14,6 +17,10 @@ function isDemoPageRequest(request) {
   }
 
   const { pathname } = new URL(request.url)
+  if (!pathname.startsWith('/demos/')) {
+    return false
+  }
+
   const finalSegment = pathname.split('/').pop() || ''
   if (finalSegment.includes('.')) {
     return false
