@@ -8,7 +8,7 @@ import '@lightgrid/react/dist/style.css'
 import { Button } from 'src/components/Button'
 
 export default function Demo({ theme }: DemoProps) {
-  const gridApi = useRef<GridApi>()
+  const gridApi = useRef<GridApi | undefined>(undefined)
 
   const scrollToBillieCraister = () => {
     const item = peopleData.find(

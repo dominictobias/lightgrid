@@ -156,7 +156,6 @@ export function debounce<T extends (...args: any) => any>(
       }
       return window.requestAnimationFrame(pendingFunc)
     }
-    // eslint-disable-next-line @typescript-eslint/no-implied-eval
     return setTimeout(pendingFunc, milliseconds)
   }
 

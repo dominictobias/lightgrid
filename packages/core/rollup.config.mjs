@@ -27,7 +27,12 @@ export default defineConfig({
     }),
     nodeResolve({ extensions }),
     typescript(),
-    scss({ fileName: 'style.css', watch: 'src/styles' }),
+    scss({
+      failOnError: true,
+      fileName: 'style.css',
+      silenceDeprecations: ['legacy-js-api'],
+      watch: 'src/styles',
+    }),
     copy({
       targets: [{ src: 'src/assets/**/*', dest: 'dist/assets' }],
     }),

@@ -1,8 +1,18 @@
 export function isShallowObjEq<T extends object>(v: T, o: T) {
-  if (typeof v === 'object') {
-    for (const key in v) if (!(key in o) || v[key] !== o[key]) return false
+  if (v === o) return true
 
-    for (const key in o) if (!(key in v) || v[key] !== o[key]) return false
+  // Only objects can be shallowly (rather than strictly) equal
+  if (
+    typeof v !== 'object' ||
+    typeof o !== 'object' ||
+    v === null ||
+    o === null
+  ) {
+    return false
   }
-  return v === o
+
+  for (const key in v) if (!(key in o) || v[key] !== o[key]) return false
+  for (const key in o) if (!(key in v) || v[key] !== o[key]) return false
+
+  return true
 }

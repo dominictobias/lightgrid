@@ -30,7 +30,7 @@ interface HeaderAreaProps<T> {
   colReorderKey?: ItemId
 }
 
-function _HeaderArea<T>({
+function HeaderAreaNoMemo<T>({
   mgr,
   columns,
   flatColumns,
@@ -145,4 +145,4 @@ function _HeaderArea<T>({
 }
 
 const typedMemo: <T>(c: T) => T = memo
-export const HeaderArea = typedMemo(_HeaderArea)
+export const HeaderArea = typedMemo(HeaderAreaNoMemo)

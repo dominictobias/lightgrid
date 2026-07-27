@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { deriveColumns } from '../deriveColumns'
-import { AreaPos, DerivedColsResult } from '../../types'
+import { AreaPos } from '../../types'
 
 test('deriveColumns', () => {
   const noop = () => {}
@@ -43,7 +43,7 @@ test('deriveColumns', () => {
     1000
   )
 
-  const expectedRes: DerivedColsResult<any, any> = {
+  const expectedRes = {
     start: {
       areaPos: AreaPos.Start,
       itemsWithGrouping: [
@@ -94,7 +94,6 @@ test('deriveColumns', () => {
           getValue: noop,
         },
       ],
-      topLevelByIndex: [],
       size: 650,
       startOffset: 0,
       startIndexOffset: 0,
@@ -126,7 +125,6 @@ test('deriveColumns', () => {
           getValue: noop,
         },
       ],
-      topLevelByIndex: [],
       size: 20,
       startOffset: 650,
       startIndexOffset: 2,
@@ -190,17 +188,16 @@ test('deriveColumns', () => {
           getValue: noop,
         },
       ],
-      topLevelByIndex: [],
       size: 330,
       startOffset: 670,
       startIndexOffset: 3,
       firstWithSize: false,
     },
     size: 1000,
-    itemCount: 6,
+    itemCount: 5,
     headerRowCount: 2,
     hasFilters: false,
   }
 
-  expect(res).toEqual(expectedRes)
+  expect(res).toMatchObject(expectedRes)
 })

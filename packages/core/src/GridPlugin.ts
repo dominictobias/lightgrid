@@ -80,7 +80,7 @@ export abstract class GridPlugin<T, N> {
   }
 
   getColPosFromIndex(colIndex: number) {
-    this.getColResultFromIndex(colIndex).areaPos
+    return this.getColResultFromIndex(colIndex).areaPos
   }
 
   getRowResultFromIndex(rowIndex: number) {

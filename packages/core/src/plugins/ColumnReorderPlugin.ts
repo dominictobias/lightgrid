@@ -256,7 +256,7 @@ export class ColumnReorderPlugin<T, N> extends GridPlugin<T, N> {
     const relativeX = clientX - gridRect.left
     const relativeY = clientY - gridRect.top
     const pinAreaBounds = 24 // 24px on edges = pin column
-    let newPin: ColumnPin | undefined = undefined
+    let newPin: ColumnPin | undefined
 
     if (relativeX > 0 && relativeX < pinAreaBounds) {
       newPin = 'start'
@@ -274,7 +274,6 @@ export class ColumnReorderPlugin<T, N> extends GridPlugin<T, N> {
         relativeY < 0 ||
         relativeY > this.mgr.$viewportHeight.value
 
-      newPin = undefined
       this.dragLabel.updateIcon(
         outOfBounds ? DragIcon.NotAllowed : DragIcon.Move
       )

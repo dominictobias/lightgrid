@@ -6,9 +6,9 @@
     "docusaurus": "docusaurus",
     "dev": "docusaurus start --port 8095 --host 0.0.0.0",
     "build": "docusaurus build",
-    "build:cloudflare": "REACT_DEMO_BASE= pnpm build && pnpm --filter @lightgrid/react build:demos && node scripts/embed-demos.mjs",
-    "preview:cloudflare": "pnpm build:cloudflare && wrangler pages dev ./build",
-    "deploy:cloudflare": "pnpm build:cloudflare && wrangler pages deploy ./build --project-name lightgrid-docs",
+    "build:cloudflare": "REACT_DEMO_BASE= bun run build && bun run --filter @lightgrid/react build:demos && node scripts/embed-demos.mjs",
+    "preview:cloudflare": "bun run build:cloudflare && wrangler pages dev ./build",
+    "deploy:cloudflare": "bun run build:cloudflare && wrangler pages deploy ./build --project-name lightgrid-docs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -22,8 +22,8 @@
     "@docusaurus/plugin-google-gtag": "^3.4.0",
     "@mdx-js/react": "^3.0.1",
     "prism-react-renderer": "^2.3.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@docusaurus/eslint-plugin": "^3.4.0",
@@ -35,7 +35,7 @@
     "@docusaurus/types": "^3.4.0",
     "@types/node": "^20.14.11",
     "dotenv": "^16.4.5",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "typescript": "^5.5.3",
     "wrangler": "^4.90.0"
   },

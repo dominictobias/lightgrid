@@ -28,7 +28,11 @@ const config: Config = {
   },
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -149,7 +153,7 @@ const config: Config = {
       //     ],
       //   },
       // ],
-      copyright: `Copyright © ${new Date().getFullYear()} Lightfin Ltd`,
+      copyright: `Copyright © ${new Date().getFullYear()} Lightgrid Ltd`,
     },
     prism: {
       theme: prismThemes.github,

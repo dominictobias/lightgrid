@@ -4,8 +4,6 @@
 
 ## Backlog
 
-- Doc intro page
-- Include instructions to use from CDN
 - Context menu plugin
 - Virtualize itemDetails
 - Sticky group header content to left/right
@@ -17,6 +15,8 @@
 - Single-cell mode cell selection
 - Cell paste
 - Row selection demo
+- Doc intro page
+- Include instructions to use from CDN
 
 ## Notes
 

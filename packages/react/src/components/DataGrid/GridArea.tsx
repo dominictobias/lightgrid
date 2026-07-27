@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, type ReactElement } from 'react'
 import {
   CellPosition,
   CellSelection,
@@ -146,10 +146,12 @@ export function GridAreaNoMemo<T>({
                   }
                 }
 
-                let rowSpan = 1
                 let height = row.size
                 if (column.rowSpan) {
-                  rowSpan = Math.min(column.rowSpan(row.item), rows.length - ri)
+                  const rowSpan = Math.min(
+                    column.rowSpan(row.item),
+                    rows.length - ri
+                  )
                   height = getCellHeight(rowSpan, row, rows, ri, area.height)
                   if (rowSpan > 1) {
                     rowSpans.set(column.colIndex, rowSpan)
@@ -187,7 +189,7 @@ export function GridAreaNoMemo<T>({
                 )
 
                 return cells
-              }, [] as JSX.Element[])}
+              }, [] as ReactElement[])}
             </div>
           )
         })}

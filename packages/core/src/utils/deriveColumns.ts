@@ -287,7 +287,7 @@ export function deriveColumns<T, N>(
           // will be relative to the pinned area, but doesn't matter as pinned area will
           // be flush with the edge anyway.
           if (
-            !column.pin &&
+            colResult.areaPos === AreaPos.Middle &&
             isLastCol &&
             startingColOffset + descendantRef.offset + size < viewportWidth
           ) {

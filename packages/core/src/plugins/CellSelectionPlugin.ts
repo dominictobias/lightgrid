@@ -223,7 +223,7 @@ export class CellSelectionPlugin<T, N> extends GridPlugin<T, N> {
     windowY <
       this.mgr.$viewportHeight.value - this.mgr.$horizontalScrollSize.value
 
-  scrollX = effect(() => {
+  scrollX: () => void = effect(() => {
     if (this.$autoScrollX.value) {
       const id = setInterval(() => {
         const maxScroll =
@@ -241,7 +241,7 @@ export class CellSelectionPlugin<T, N> extends GridPlugin<T, N> {
     }
   })
 
-  scrollY = effect(() => {
+  scrollY: () => void = effect(() => {
     if (this.$autoScrollY.value) {
       const id = setInterval(() => {
         const maxScroll =

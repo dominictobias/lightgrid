@@ -896,37 +896,40 @@ export class GridManager<T, N> {
     let colOffset: number | undefined
     let rowOffset: number | undefined
 
-    if (columnKey) {
+    if (columnKey !== undefined) {
       const cols = this.$derivedCols.value
-      const joinedItems = [
+      const column = [
         ...cols.start.items,
         ...cols.middle.items,
         ...cols.end.items,
-      ]
-      colOffset = joinedItems.find(c => c.key === columnKey)?.offset
-      if (!colOffset) {
+      ].find(c => c.key === columnKey)
+      if (column) {
+        colOffset = column.offset
+      } else {
         console.warn(`Column with key ${columnKey} not found`)
       }
     }
 
-    if (rowKey) {
+    if (rowKey !== undefined) {
       const rows = this.$derivedRows.value
-      const joinedItems = [
+      const row = [
         ...rows.start.items,
         ...rows.middle.items,
         ...rows.end.items,
-      ]
-      rowOffset = joinedItems.find(c => c.rowKey === rowKey)?.offset
-      if (!rowOffset) {
+      ].find(r => r.rowKey === rowKey)
+      if (row) {
+        rowOffset = row.offset
+      } else {
         console.warn(`Row with key ${rowKey} not found`)
       }
     }
 
-    if (colOffset && rowOffset) {
+    // Note: an offset of 0 is valid (first row/column), so check for undefined
+    if (colOffset !== undefined && rowOffset !== undefined) {
       this.scrollTo(colOffset, rowOffset)
-    } else if (rowOffset) {
+    } else if (rowOffset !== undefined) {
       this.scrollTop(rowOffset)
-    } else if (colOffset) {
+    } else if (colOffset !== undefined) {
       this.scrollLeft(colOffset)
     }
   }
